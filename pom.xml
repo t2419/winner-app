@@ -5,11 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tiger</groupId>
-    <artifactId>basic-template</artifactId>
+    <artifactId>winner-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>demo</module>
+        <module>base-api</module>
+        <module>container-uat</module>
     </modules>
 
     <properties>
