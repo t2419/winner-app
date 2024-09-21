@@ -1,0 +1,8 @@
+spring:
+  main:
+    web-application-type: none
+
+#设置基础访问路径
+server:
+  servlet:
+    context-path: /api
