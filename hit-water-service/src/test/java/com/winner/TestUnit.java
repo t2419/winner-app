@@ -36,13 +36,15 @@ public class TestUnit {
         System.out.println(restTemplate == null);
 
 
-        ResponseEntity<String> response = restTemplate.exchange("https://hga026.com/transform.php?p=get_version", HttpMethod.GET, null, String.class, new HashMap<>());
+//        ResponseEntity<String> response = restTemplate.exchange("https://hga026.com/transform.php?p=get_version", HttpMethod.GET, null, String.class, new HashMap<>());
 
+        String body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><serverrequest><code>666</code><ver>2024-09-21-CRM29_44</ver><site>EN72</site></serverrequest>";
 
-        if (200 == response.getStatusCode().value() && response.hasBody()) {
+//        if (200 == response.getStatusCode().value() && response.hasBody()) {
+        if (true) {
 
             try {
-                Document document = saxReader.read(new StringReader(response.getBody()));
+                Document document = saxReader.read(new StringReader(body));
 
                 Element rootElement = document.getRootElement();
                 String ver = rootElement.element("ver").getTextTrim();
@@ -53,7 +55,7 @@ public class TestUnit {
         }
 
 
-        System.out.println(response.getBody());
+//        System.out.println(response.getBody());
 
     }
 
