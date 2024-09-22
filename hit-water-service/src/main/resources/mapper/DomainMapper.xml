@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.winner.mapper.DomainMapper">
+
+    <insert id="insertDomain" parameterType="com.winner.bean.Domain">
+        insert into t_domain(addr, `domain`, `type`)
+        values
+
+        <foreach collection="domains" item="item" index="index" separator=",">
+            (#{item.addr}, #{item.domain}, #{item.type})
+        </foreach>
+
+    </insert>
+    <insert id="insert">
+        insert into t_domain(addr, `domain`, `type`) values (#{addr}, #{domain}, #{type})
+
+
+    </insert>
+    <delete id="deleteDomainByType">
+
+        delete from t_domain where `type` = #{type}
+
+    </delete>
+
+    <select id="getDomainList" resultType="com.winner.bean.Domain">
+        select id, addr, `domain`, `type`
+        from t_domain
+    </select>
+
+
+</mapper>

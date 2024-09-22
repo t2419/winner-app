@@ -2,18 +2,19 @@ package com.winner.component;
 
 
 import org.dom4j.io.SAXReader;
-import org.jsoup.Jsoup;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+
 
 @Configuration
 public class ClientConfig {
 
 
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.additionalInterceptors(new LoggingInterceptor()).build();
     }
 
     @Bean
@@ -21,12 +22,5 @@ public class ClientConfig {
         return new SAXReader();
     }
 
-//
-//    @Bean
-//    public Jsoup jsoup(){
-//
-//        return new Jsoup();
-//
-//    }
 
 }
